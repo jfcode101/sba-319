@@ -9,4 +9,4 @@ const userSchema = new mongoose.Schema({
 // set username index
 userSchema.index({ username: 1 });
 
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("User", userSchema);
