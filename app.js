@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config(); // load environment variable from .env
-const userRoutes = require("./routes/userRoutes");
 const bodyParser = require("body-parser");
+const userRoutes = require("./routes/userRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 // assign express to app constant variable
 const app = express();
@@ -35,7 +36,8 @@ app.get("/", (req, res) => {
 });
 
 // Routes
-app.use("/userRoutes", userRoutes); // user route
+app.use("/api/userRoutes", userRoutes); // user route
+app.use("/api/postRoutes", postRoutes); // post route
 
 // listen to the port
 app.listen(PORT, () => {
