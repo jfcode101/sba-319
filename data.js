@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const Post = require("./models/post");
 const Comment = require("./models/comment");
+const connectDB = require("./config/db");
 
 // retrieve the database connection string from
 // environment variable
@@ -10,14 +11,7 @@ const mongoStrURI = process.env.DATABASE_URL;
 const populateDB = async () => {
   // connect to the database, and
   // when the database connection fails throw an error
-  await mongoose
-    .connect(mongoStrURI)
-    .then(() => {
-      console.log("MongoDB connected");
-    })
-    .catch((err) => {
-      console.error("MongoDB connection error:", err);
-    });
+  await connectDB();
 
   // clear existing data
   try {
@@ -73,12 +67,6 @@ const populateDB = async () => {
         "Data science combines statistics, mathematics, and programming to extract insights from data. It is a rapidly growing field with applications in various industries.",
       authorId: users[3]._id,
     },
-    {
-      title: "Machine Learning",
-      content:
-        "Machine learning is a subset of artificial intelligence that enables systems to learn and improve from experience without being explicitly programmed.",
-      authorId: users[4]._id,
-    },
   ]);
 
   // create comments
@@ -103,11 +91,6 @@ const populateDB = async () => {
       postId: posts[3]._id,
       userId: users[2]._id,
       content: "Great insights, thank you for sharing!",
-    },
-    {
-      postId: posts[4]._id,
-      userId: users[3]._id,
-      content: "This is exactly what I needed!",
     },
   ]);
 
