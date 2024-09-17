@@ -1,0 +1,29 @@
+{
+  "name": "sba-319",
+  "version": "1.0.0",
+  "description": "A simple  RESTful API using Node, Express, and MongoDB.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfcode101/sba-319.git"
+  },
+  "author": "Dev JFD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfcode101/sba-319/issues"
+  },
+  "homepage": "https://github.com/jfcode101/sba-319#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2"
+  }
+}
