@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config(); // load environment variable from .env
-const routes = require("./routes/routes");
+const userRoutes = require("./routes/userRoutes");
+const bodyParser = require("body-parser");
 
 // assign express to app constant variable
 const app = express();
@@ -25,13 +26,16 @@ mongoose
     console.error("MongoDB connection error:", err);
   });
 
+// "body-parser"  middleware
+app.use(bodyParser.json());
+
 // create a basic router
 app.get("/", (req, res) => {
   res.send("SBA-19 loading!");
 });
 
-// use the route
-app.use("/routes", routes);
+// Routes
+app.use("/userRoutes", userRoutes); // user route
 
 // listen to the port
 app.listen(PORT, () => {
